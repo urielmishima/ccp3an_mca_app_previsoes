@@ -8,20 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.usjt.tempo.model.Periodo;
-import br.usjt.tempo.repository.PeriodoRepository;
+import br.usjt.tempo.model.Previsao;
+import br.usjt.tempo.service.PrevisaoService;
 
 @Controller
-public class PeriodoController {
+public class PrevisaoController {
 
 	@Autowired
-	private PeriodoRepository repository;
+	private PrevisaoService service;
 
-	@GetMapping("/periodos")
-	private ModelAndView listarPeriodos() throws IOException {
+	@GetMapping("/previsoes")
+	public ModelAndView listarPeriodos() throws IOException {
+		System.out.println("Entrando em /previsoes");
 		ModelAndView modelAndView = new ModelAndView("lista_periodos");
-		List<Periodo> periodos = repository.findAll();
-		modelAndView.addObject("periodos", periodos);
+		List<Previsao> previsoes = service.findAll();
+		modelAndView.addObject("previsoes", previsoes);
 		return modelAndView;
 	}
 }

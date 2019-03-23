@@ -1,20 +1,35 @@
 package br.usjt.tempo.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-public class Periodo {
+public class Previsao {
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String diaNaSemana;
+	private String descricao;
 	private Double temperaturaMinima;
 	private Double temperaturaMaxima;
 	private Double humidade;
-	private String descricao;
+	private String diaNaSemana;
+	
+	@Column(nullable = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataHora;
+	
+	@Column(nullable = true)
+	private String latitude;
+	@Column(nullable = true)
+	private String longitude;
 	
 	public Long getId() {
 		return id;
@@ -51,5 +66,23 @@ public class Periodo {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public Date getDataHora() {
+		return dataHora;
+	}
+	public void setDataHora(Date dataHora) {
+		this.dataHora = dataHora;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 }

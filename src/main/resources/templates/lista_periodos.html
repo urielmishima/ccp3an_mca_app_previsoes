@@ -27,12 +27,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="periodos : ${periodos}">
-						<td th:text="${periodos.diaNaSemana}"></td>
-						<td th:text="${periodos.temperaturaMinima}+'°C'"></td>
-						<td th:text="${periodos.temperaturaMaxima}+'°C'"></td>
-						<td th:text="${periodos.humidade}+'%'"></td>
-						<td th:text="${periodos.descricao}"></td>
+					<tr th:each="previsao : ${previsoes}">
+						<td th:text="${previsao.diaNaSemana}"></td>
+						<td th:text="${previsao.temperaturaMinima}+'°C'"></td>
+						<td th:text="${previsao.temperaturaMaxima}+'°C'"></td>
+						<td th:text="${previsao.humidade}+'%'"></td>
+						<td th:text="${previsao.descricao}"></td>
 					</tr>
 				</tbody>
 			</table>
