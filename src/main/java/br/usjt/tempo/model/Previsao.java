@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,7 +21,9 @@ public class Previsao {
 	private Double temperaturaMinima;
 	private Double temperaturaMaxima;
 	private Double humidade;
-	private String diaNaSemana;
+	
+	@OneToOne
+	private DiaSemana diaSemana;
 	
 	@Column(nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -36,12 +39,6 @@ public class Previsao {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public String getDiaNaSemana() {
-		return diaNaSemana;
-	}
-	public void setDiaNaSemana(String diaNaSemana) {
-		this.diaNaSemana = diaNaSemana;
 	}
 	public Double getTemperaturaMinima() {
 		return temperaturaMinima;
@@ -84,5 +81,11 @@ public class Previsao {
 	}
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+	public DiaSemana getDiaSemana() {
+		return diaSemana;
+	}
+	public void setDiaSemana(DiaSemana diaSemana) {
+		this.diaSemana = diaSemana;
 	}
 }

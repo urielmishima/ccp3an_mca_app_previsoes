@@ -28,7 +28,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="previsao : ${previsoes}">
-						<td th:text="${previsao.diaNaSemana}"></td>
+						<td th:text="${previsao.diaSemana.diaSemana}"></td>
 						<td th:text="${previsao.temperaturaMinima}+'°C'"></td>
 						<td th:text="${previsao.temperaturaMaxima}+'°C'"></td>
 						<td th:text="${previsao.humidade}+'%'"></td>
