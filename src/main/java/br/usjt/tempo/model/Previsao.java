@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,12 +28,14 @@ public class Previsao {
 	
 	@Column(nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataHora;
-	
+	private Date dataHora;	
 	@Column(nullable = true)
 	private String latitude;
 	@Column(nullable = true)
 	private String longitude;
+	
+	@OneToMany
+	private Cidade cidade;
 	
 	public Long getId() {
 		return id;
@@ -87,5 +90,11 @@ public class Previsao {
 	}
 	public void setDiaSemana(DiaSemana diaSemana) {
 		this.diaSemana = diaSemana;
+	}
+	public Cidade getCidade() {
+		return cidade;
+	}
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 }
